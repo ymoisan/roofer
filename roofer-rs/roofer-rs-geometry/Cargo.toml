@@ -1,0 +1,40 @@
+[package]
+name = "roofer-rs-geometry"
+description = "Core geometry, data structures, and reconstruction algorithms for Roofer"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+# Math and geometry
+nalgebra = { workspace = true }
+approx = { workspace = true }
+geo = { workspace = true }
+geo-types = { workspace = true }
+rstar = { workspace = true }
+spade = { workspace = true }
+kiddo = { workspace = true }
+
+# Arrow for columnar storage
+arrow = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Error handling
+thiserror = { workspace = true }
+
+# Logging
+tracing = { workspace = true }
+
+# Random (for RANSAC)
+rand = { workspace = true }
+
+# Parallelism
+rayon = { workspace = true }
+
+# Date/time for attributes
+chrono = { workspace = true }

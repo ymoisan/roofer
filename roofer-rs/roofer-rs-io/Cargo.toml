@@ -1,0 +1,50 @@
+[package]
+name = "roofer-rs-io"
+description = "I/O layer for Roofer: LAS/LAZ, GDAL vectors, CityJSON, FCB, GeoParquet"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[features]
+default = []
+# FCB output (requires OpenSSL via reqwest; install libssl-dev on Debian/Ubuntu if enabling)
+fcb = ["dep:fcb_core"]
+
+[dependencies]
+# Geometry crate
+roofer-rs-geometry = { workspace = true }
+
+# Math (for I/O types)
+nalgebra = { workspace = true }
+
+# I/O
+gdal = { workspace = true }
+las = { workspace = true }
+
+# Arrow / GeoArrow / Parquet
+arrow = { workspace = true }
+# geoarrow = { workspace = true }  # Temporarily disabled
+parquet = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+toml = { workspace = true }
+
+# FCB (optional, see "fcb" feature)
+fcb_core = { workspace = true, optional = true }
+
+# Error handling
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+
+# Logging
+tracing = { workspace = true }
+
+# Date/time
+chrono = { workspace = true }
+
+[dev-dependencies]
+tempfile = "3"

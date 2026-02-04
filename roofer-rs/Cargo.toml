@@ -1,0 +1,65 @@
+[workspace]
+resolver = "2"
+members = [
+    "roofer-rs-cli",
+    "roofer-rs-geometry",
+    "roofer-rs-io",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/3DGI/roofer"
+authors = ["Roofer Contributors"]
+
+[workspace.dependencies]
+# Math and geometry
+nalgebra = { version = "0.33", features = ["serde-serialize"] }
+approx = "0.5"
+geo = "0.29"
+geo-types = "0.7"
+rstar = "0.12"
+spade = "2"
+kiddo = "4"
+
+# I/O
+gdal = { version = "0.17", features = ["bindgen"] }
+las = { version = "0.9", features = ["laz"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+toml = "0.8"
+
+# Arrow / GeoArrow / GeoParquet
+arrow = "53"
+# geoarrow = "0.3"  # Temporarily disabled due to nix build issues
+parquet = "53"
+
+# FCB (optional in roofer-rs-io via "fcb" feature; pulls in OpenSSL)
+fcb_core = "0.1"
+
+# Concurrency
+rayon = "1.10"
+crossbeam-channel = "0.5"
+
+# CLI
+clap = { version = "4", features = ["derive"] }
+indicatif = "0.17"
+
+# Error handling
+thiserror = "2"
+anyhow = "1"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Random (for RANSAC)
+rand = "0.8"
+
+# Date/time
+chrono = { version = "0.4", features = ["serde"] }
+
+# Workspace crates
+roofer-rs-geometry = { path = "roofer-rs-geometry" }
+roofer-rs-io = { path = "roofer-rs-io" }
